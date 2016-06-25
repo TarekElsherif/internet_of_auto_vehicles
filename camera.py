@@ -52,7 +52,7 @@ def perform():
         if not grabbed:
             print  'Camera failed.'
             break
-        # Test comment
+            
 ##        frame = cv2.multiply(frame,np.array([alpha])) 
 ##        frame = cv2.add(frame,np.array([beta]))
 
