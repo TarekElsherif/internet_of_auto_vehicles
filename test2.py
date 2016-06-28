@@ -6,8 +6,8 @@ import time
 import main as follower
 from pubnub import Pubnub
 
-pubnub = Pubnub(publish_key='pub-c-d1c59d19-6cf9-4dd9-a3ae-2811462c8506',
-                    subscribe_key='sub-c-49f8db72-3b97-11e6-85a4-0619f8945a4f')
+pubnub = Pubnub(publish_key='pub-c-8a99982e-7ab9-4e15-845c-4b28fac72622',
+                    subscribe_key='sub-c-56c09c28-3b97-11e6-9baf-0619f8945a4f')
 channel = 'car2'
 channel2 = 'v2v' 
 
