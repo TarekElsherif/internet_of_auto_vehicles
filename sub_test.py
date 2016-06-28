@@ -6,27 +6,24 @@ import time
 from pubnub import Pubnub
 from threading import Thread
 
-pubnub = Pubnub(publish_key='pub-c-d1c59d19-6cf9-4dd9-a3ae-2811462c8506',
-                    subscribe_key='sub-c-49f8db72-3b97-11e6-85a4-0619f8945a4f')
+pubnub = Pubnub(publish_key='pub-c-8a99982e-7ab9-4e15-845c-4b28fac72622',
+                    subscribe_key='sub-c-56c09c28-3b97-11e6-9baf-0619f8945a4f')
 channel = 'car1'
-channel2 = 'v2v'
+channelv2v = 'v2v'
 
 x = 0
 y = 0
 
-def callback(m):
+
+def callback1(m):
     print(m)
-    
+
 def _callback(m, channel):
     x = m['X']
     y = m['Y']
-    print(x)
-    print(y)
-    data = {
-        X : x
-        Y : y
-    }
-    pubnub.publish(channel2, data, callback = callback, error = callback) 
+    print'x: ' + str(x) + ', y: ' + str(y)
+    pubnub.publish(channelv2v,m,callback=callback1,error=callback1) 
+
 def _error(m):
     print(m)
 
@@ -35,10 +32,12 @@ pubnub.subscribe(channels=channel, callback=_callback, error=_error)
 img = cv2.imread('v.jpg') # load a dummy image
 
 def shell_listen():
+    global x
+    global y
     while(1):
         c = 'r'
         car_motor.stop()
-        c = raw_input('Waiting for shell input...')
+        c = raw_input()
         if  c=='w':  # UP
             car_motor.forward(0.5)
             print 'foreward'
@@ -55,7 +54,7 @@ def shell_listen():
             print 'right'
             car_motor.turn_right(0.5)
             continue
-        elif c=='q':  # Right
+        elif c=='q':  # Stop
             car_motor.stop()
             print 'Exit'
             break

@@ -72,9 +72,7 @@ def stop():
 
 def forward(tf):
 ##    GPIO.cleanup()
-    print '1'
     init()
-    print '2'
     # Enable GPIO pins OUTPUT (H-Bridge 1)
     GPIO.output(H1_enable_a,True)
     GPIO.output(H1_enable_b,True)
