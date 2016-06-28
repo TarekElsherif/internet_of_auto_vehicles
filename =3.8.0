@@ -1,0 +1,4 @@
+Requirement already satisfied (use --upgrade to upgrade): pubnub in /usr/local/lib/python2.7/dist-packages
+Requirement already satisfied (use --upgrade to upgrade): pycryptodome>=3.3 in /usr/local/lib/python2.7/dist-packages (from pubnub)
+Requirement already satisfied (use --upgrade to upgrade): requests>=2.4 in /usr/lib/python2.7/dist-packages (from pubnub)
+Cleaning up...
